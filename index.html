@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pigdice</title>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class = "center">
+  <div>
+    <h1>player <span id="player">1</span><br/><span id = "rollem">roll dice</span></h1>
+    <button id="roll-button" class = "hidden">Roll!</button>
+    <button id="hold-button" class = "hidden">Hold!</button>
+  </div>
+  <br/>
+    <br/>
+    <p id = "tempScore" class = "hidden">This round: <span id = "tempScoreNumber"></span></p>
+  </div>
+  <div id = "bust" class = "hidden">
+    <p><strong>BUSTED!</strong></p>
+    <button id = "dang">dang</button>
+  </div>
+  <div id="showRoll">
+    
+  </div>
+  <div>
+    <br/>
+    <table id="score-table">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Player 1: </td>
+          <td><span id="player1">0</span></td>
+        </tr>
+        <tr>
+          <td>Player 2: </td>
+          <td><span id="player2">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button id="reset" class = "hidden">play again</button>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
