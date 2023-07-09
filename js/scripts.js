@@ -14,26 +14,31 @@ window.onload = function () {
 }
 
 function playDice() {
-  let diceValue = rollDice();
+  let diceValue1 = rollDice();
+  let diceValue2 = rollDice();
   let showRoll = document.getElementById("showRoll");
-  showRoll.innerText = "Your Roll: " + diceValue;
-  let diceImage = document.createElement("img");
-  diceImage.src = "img/dice" + diceValue + ".png";
+  showRoll.innerText = "Your Roll:" + diceValue1 + " and " + diceValue2;
+  let diceImage1 = document.createElement("img");
+  let diceImage2 = document.createElement("img");
   let lineBreak = document.createElement("br");
+  diceImage1.src = "img/dice" + diceValue1 + ".png";
+  diceImage2.src = "img/dice" + diceValue2 + ".png";
   showRoll.appendChild(lineBreak);
-  showRoll.appendChild(diceImage);
+  showRoll.appendChild(diceImage1);
+  showRoll.appendChild(diceImage2);
 
-  if (diceValue === 1) {
+
+  if (diceValue1 === 1 || diceValue2 === 1) {
     document.getElementById("bust").removeAttribute("class", "hidden");
     currentScore = 0;
     changePlayer(currentPlayer, playerScores);
   }
   else {
-    currentScore += diceValue;
+    currentScore += diceValue1 + diceValue2;
     document.getElementById("bust").setAttribute("class", "hidden");
     document.getElementById("tempScoreNumber").textContent = currentScore;
     document.getElementById("tempScore").classList.remove("hidden");
-  }
+  }                              
 
   if (playerScores[currentPlayer] + currentScore >= 100) {
     console.log(([currentPlayer] + 1) + " wins");
@@ -44,8 +49,8 @@ function playDice() {
 
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
-}
 
+}
 function reset() {
   currentPlayer = 0;
   playerScores = [0, 0];
